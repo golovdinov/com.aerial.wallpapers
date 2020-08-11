@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainGraph"
+    app:startDestination="@id/welcomeDest">
+
+    <fragment
+        android:id="@+id/welcomeDest"
+        android:name="com.aerial.wallpapers.ui.fragment.WelcomeFragment"
+        android:label="Welcome"
+        tools:layout="@layout/fragment_welcome">
+        <action
+            android:id="@+id/action_welcomeDest_to_wrapperDest"
+            app:destination="@id/wrapperDest"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/welcomeDest"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_welcomeDest_to_wrapperDest_urgin"
+            app:destination="@id/wrapperDest"
+            app:popUpTo="@id/welcomeDest"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/wrapperDest"
+        android:name="com.aerial.wallpapers.ui.fragment.WrapperFragment"
+        android:label="Photos"
+        tools:layout="@layout/fragment_wrapper" />
+
+</navigation>

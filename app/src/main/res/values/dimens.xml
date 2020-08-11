@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="paddingS">8dp</dimen>
+    <dimen name="paddingM">16dp</dimen>
+    <dimen name="paddingXM">20dp</dimen>
+    <dimen name="paddingL">24dp</dimen>
+
+    <dimen name="textSizeM">14sp</dimen>
+    <dimen name="textSizeL">18sp</dimen>
+    <dimen name="textSizeXL">24sp</dimen>
+
+    <dimen name="tallToolbarHeight">180dp</dimen>
+
+    <integer name="navigationSlideDuration">300</integer>
+
+    <dimen name="homeCollectionsCardPadding">12dp</dimen>
+
+    <dimen name="homeCollectionHeight">240dp</dimen>
+
+</resources>

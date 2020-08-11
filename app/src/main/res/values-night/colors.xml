@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#004D40</color>
+    <color name="textOnPrimary">#fff</color>
+    <color name="primaryDark">#004D40</color>
+    <color name="accent">#00796B</color>
+    <color name="textPrimary">#fff</color>
+    <color name="textSecondary">#C0C0C0</color>
+    <color name="textAccent">@color/accent</color>
+    <color name="windowBackground">#212121</color>
+    <color name="buttonBackground">#009688</color>
+    <color name="buttonText">#fff</color>
+    <color name="buttonTextAccent">@color/textAccent</color>
+    <color name="lightBackground">#303030</color>
+
+    <color name="cardBackgroundColor">#2E2E2E</color>
+</resources>

@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Обои Петербурга</string>
+    <string name="welcome_title">Добро пожаловать!</string>
+    <string name="welcome_text">Здесь вы найдёте уникальные авторские фотографии города Санкт-Петербург сделанные с высоты птичьего полёта</string>
+    <string name="welcome_cta">Продолжить</string>
+    <string name="home_title_photo_of_the_day">Бесплатное фото дня</string>
+    <string name="home_photo_of_the_day_failed">Не удалось загрузить фото дня</string>
+    <string name="home_title_collections">Коллекции</string>
+    <string name="home_see_all">Посмотреть все</string>
+    <string name="home_title_new_photos">Новые фото</string>
+    <string name="collections_list_item_failed">Не удалось загрузить</string>
+    <string name="purchase_title_set_wallpaper">Установить на обои</string>
+    <string name="purchase_text_subscription">Получите возможность устанавливать любые фотографии на заставку всего за</string>
+    <string name="purchase_button_subscribe">Подписаться</string>
+    <string name="purchase_button_cancel">Отмена</string>
+    <string name="button_set_as_wallpaper">Поставить на обои</string>
+    <string name="photo_of_the_day_title">Бесплатное фото дня</string>
+    <string name="alert_wallpaper_set_text">Фотография установлена на обои</string>
+    <string name="home_title">Петербург с высоты</string>
+    <string name="big_photo_title_all">Все фото</string>
+    <string name="big_photo_title_counter">%d из %d</string>
+    <string name="home_copyright"><![CDATA[© Александр Головдинов<br><a href="https://instagram.com/golovdinov">instagram.com/golovdinov</a><br><a href="mailto:golovdinov@gmail.com">Обратная связь</a>]]></string>
+    <string name="all_photos_title">Все фото</string>
+    <string name="collections_title">Коллекции</string>
+    <string name="snakbar_error_network">Ошибка сети</string>
+    <string name="snakbar_retry">Повторить</string>
+    <string name="photos_list_item_failed">Не удалось загрузить</string>
+    <string name="year">год</string>
+    <string name="month">месяц</string>
+    <string name="week">неделя</string>
+</resources>

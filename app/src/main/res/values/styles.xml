@@ -1,0 +1,86 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="Theme.App" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primaryDark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:textColorPrimary">@color/textOnPrimary</item> <!-- App Bar Text Color -->
+        <item name="android:windowBackground">@color/windowBackground</item>
+        <item name="android:buttonStyle">@style/Widget.App.Button</item>
+        <item name="android:borderlessButtonStyle">@style/Widget.App.Button.Borderless</item>
+        <item name="dialogTheme">@style/Theme.App.Dialog</item>
+        <item name="alertDialogStyle">@style/Theme.App.Dialog.Alert</item>
+        <item name="colorBackgroundFloating">@color/windowBackground</item>
+        <item name="colorControlNormal">@color/textOnPrimary</item>
+    </style>
+
+    <style name="Theme.App.Dialog" parent="Theme.AppCompat.DayNight.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:buttonStyle">@style/Widget.App.Button</item>
+    </style>
+
+    <style name="Theme.App.Dialog.Alert" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:windowBackground">@color/windowBackground</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.App.Dialog.Alert.PositiveButton</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/Widget.App.Dialog.Alert.PositiveButton</item>
+    </style>
+
+    <style name="Widget.App.Dialog.Alert.PositiveButton" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/accent</item>
+    </style>
+
+    <style name="Widget.App.AppBarLayout" parent="Widget.Design.AppBarLayout"/>
+
+    <style name="Widget.App.AppBarLayout.Transparent" parent="Widget.App.AppBarLayout">
+        <item name="android:background">@null</item>
+        <item name="android:elevation">0dp</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="Widget.App.Button" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/buttonBackground</item>
+        <item name="android:colorButtonNormal">@color/buttonBackground</item>
+        <item name="android:textColor">@color/buttonText</item>
+    </style>
+
+    <style name="Widget.App.Button.Borderless" parent="Widget.AppCompat.Button.Borderless.Colored">
+        <item name="android:textColor">@color/buttonTextAccent</item>
+    </style>
+
+    <style name="Widget.App.CardView" parent="CardView">
+        <item name="cardBackgroundColor">@color/cardBackgroundColor</item>
+        <item name="cardUseCompatPadding">true</item>
+    </style>
+
+
+    <style name="Widget.App.HomeCategoryTitleWrapper" parent="android:Widget">
+        <!--<item name="android:layout_marginBottom">@dimen/paddingS</item>-->
+        <item name="android:paddingLeft">@dimen/paddingM</item>
+        <item name="android:paddingRight">@dimen/paddingS</item>
+    </style>
+
+    <style name="Widget.App.HomeCategoryTitleButton" parent="Widget.App.Button.Borderless">
+        <item name="android:minWidth">@null</item>
+        <item name="android:paddingLeft">@dimen/paddingS</item>
+        <item name="android:paddingRight">@dimen/paddingS</item>
+    </style>
+
+    <style name="Widget.App.HomeCategory" parent="android:Widget">
+        <item name="android:layout_marginBottom">@dimen/paddingL</item>
+    </style>
+
+    <style name="Widget.App.HomeCategoryTitle" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/textSizeL</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="TextAppearance.App.CollapsintToolbar.ExpandedTextAppearance" parent="TextAppearance.Design.CollapsingToolbar.Expanded">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+</resources>

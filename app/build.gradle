@@ -1,0 +1,107 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+
+android {
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    compileSdkVersion 29
+    buildToolsVersion "29.0.1"
+    defaultConfig {
+        applicationId "com.aerial.wallpapers"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 3
+        versionName "1.0.3"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+
+        }
+    }
+    kapt {
+        generateStubs = true
+    }
+
+    flavorDimensions "api", "version"
+
+    productFlavors {
+        minApi19 {
+            dimension "api"
+            minSdkVersion 19
+        }
+        minApi24 {
+            dimension "api"
+            minSdkVersion 21
+        }
+        mock {
+            dimension "version"
+        }
+        remoteLocal {
+            dimension "version"
+            buildConfigField "String", "API_ORIGIN", "\"http://10.0.2.2/\""
+        }
+        remoteProd {
+            dimension "version"
+            buildConfigField "String", "API_ORIGIN", "\"https://wallpaperapi.golovdinov.ru/\""
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    dexOptions {
+        incremental true
+        javaMaxHeapSize "4g"
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.navigation:navigation-fragment:2.2.0'
+    implementation 'androidx.navigation:navigation-ui:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.2.0'
+    implementation 'com.google.dagger:dagger:2.25.2'
+    kapt 'com.google.dagger:dagger-compiler:2.25.2'
+    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.1.0'
+    implementation "androidx.room:room-runtime:2.2.3"
+    implementation 'androidx.room:room-ktx:2.2.3'
+    kapt "androidx.room:room-compiler:2.2.3"
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.github.mmin18:realtimeblurview:1.2.1'
+    implementation 'androidx.paging:paging-runtime-ktx:2.1.1'
+    implementation 'com.android.billingclient:billing:2.1.0'
+    implementation 'com.google.firebase:firebase-analytics:17.2.3'
+    implementation 'com.google.firebase:firebase-crashlytics:17.0.0-beta01'
+}

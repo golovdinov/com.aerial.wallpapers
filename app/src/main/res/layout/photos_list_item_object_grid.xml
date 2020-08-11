@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="photo"
+            type="com.aerial.wallpapers.entity.Photo" />
+        <variable
+            name="position"
+            type="Integer" />
+        <variable
+            name="presenter"
+            type="com.aerial.wallpapers.ui.fragment.PhotoItemPresenter" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/paddingM"
+        android:gravity="center">
+        <RelativeLayout
+            android:layout_width="110dp"
+            android:layout_height="160dp">
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmer"
+                android:visibility="@{photo == null ? View.VISIBLE : View.GONE}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <View
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/lightBackground"
+                    clipToOutline="@{true}"/>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="@{photo == null ? View.GONE : View.VISIBLE}"
+                style="@style/Widget.App.CardView">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        imageUrl="@{photo.imageUrlPreview}"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:onClick="@{() -> presenter.onPhotoClick(photo, position)}"/>
+                    <!--<TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text='@{photo != null ? photo.photoId : "placeholder" }'
+                        android:textSize="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="#000"
+                        android:background="#fff"
+                        tools:text="placeholder"/>-->
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

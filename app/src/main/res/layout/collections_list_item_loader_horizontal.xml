@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="failed"
+            type="Boolean" />
+    </data>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/homeCollectionHeight"
+                style="@style/Widget.App.CardView">
+
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/shimmer"
+                    android:visibility="@{failed ? View.GONE: View.VISIBLE}"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <View
+                            android:id="@+id/ivFakeWallpaper"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:background="@color/lightBackground"
+                            android:layout_alignParentTop="true"
+                            android:layout_above="@id/llFakeTexts"/>
+                        <LinearLayout
+                            android:id="@+id/llFakeTexts"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:paddingLeft="@dimen/paddingM"
+                            android:paddingRight="@dimen/paddingM">
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/paddingM">
+                                <TextView
+                                    android:id="@+id/tvFakeTitle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/textSizeXL"
+                                    android:lines="1"
+                                    android:ellipsize="end"/>
+                                <View
+                                    android:layout_width="300dp"
+                                    android:layout_height="0dp"
+                                    android:layout_alignTop="@id/tvFakeTitle"
+                                    android:layout_alignBottom="@id/tvFakeTitle"
+                                    android:background="@color/lightBackground"/>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/paddingM">
+                                <TextView
+                                    android:id="@+id/tvFakeSubtitle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/textSizeM"
+                                    android:lines="1"
+                                    android:ellipsize="end"/>
+                                <View
+                                    android:layout_width="200dp"
+                                    android:layout_height="0dp"
+                                    android:layout_alignTop="@id/tvFakeSubtitle"
+                                    android:layout_alignBottom="@id/tvFakeSubtitle"
+                                    android:background="@color/lightBackground"/>
+                            </RelativeLayout>
+                        </LinearLayout>
+                    </RelativeLayout>
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+                <LinearLayout
+                    android:visibility="@{failed ? View.VISIBLE : View.GONE}"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/homeCollectionHeight"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/collections_list_item_failed"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+</layout>

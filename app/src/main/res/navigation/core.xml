@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coreGraph"
+    app:startDestination="@id/homeDest">
+
+    <fragment
+        android:id="@+id/homeDest"
+        android:name="com.aerial.wallpapers.ui.fragment.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeDest_to_photoOfTheDayDest"
+            app:destination="@id/photoOfTheDayDest"
+            app:enterAnim="@anim/appear_in"
+            app:exitAnim="@anim/fade_out"
+            app:popExitAnim="@anim/appear_out" />
+        <action
+            android:id="@+id/action_homeDest_to_collectionsDest"
+            app:destination="@id/collectionsDest"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_homeDest_to_allPhotosDest"
+            app:destination="@id/allPhotosDest"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_homeDest_to_collectionPhotosDest"
+            app:destination="@id/collectionPhotosDest"
+            app:enterAnim="@anim/appear_in"
+            app:exitAnim="@anim/fade_out"
+            app:popExitAnim="@anim/appear_out" />
+        <action
+            android:id="@+id/action_homeDest_to_bigPhotosDest"
+            app:destination="@id/bigPhotosDest"
+            app:enterAnim="@anim/appear_in"
+            app:exitAnim="@anim/fade_out"
+            app:popExitAnim="@anim/appear_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/collectionsDest"
+        android:name="com.aerial.wallpapers.ui.fragment.CollectionsFragment"
+        android:label="Collections"
+        tools:layout="@layout/fragment_collections">
+        <action
+            android:id="@+id/action_collectionsDest_to_collectionPhotosDest"
+            app:destination="@id/collectionPhotosDest"
+            app:enterAnim="@anim/appear_in"
+            app:exitAnim="@anim/fade_out"
+            app:popExitAnim="@anim/appear_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/allPhotosDest"
+        android:name="com.aerial.wallpapers.ui.fragment.AllPhotosFragment"
+        android:label="Photos"
+        tools:layout="@layout/fragment_all_photos">
+        <argument
+            android:name="collectionId"
+            app:argType="string"
+            android:defaultValue="@null"/>
+        <action
+            android:id="@+id/action_allPhotosDest_to_bigPhotosDest"
+            app:destination="@id/bigPhotosDest"
+            app:enterAnim="@anim/appear_in"
+            app:exitAnim="@anim/fade_out"
+            app:popExitAnim="@anim/appear_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/collectionPhotosDest"
+        android:name="com.aerial.wallpapers.ui.fragment.CollectionPhotosFragment"
+        android:label="Collection Photos"
+        tools:layout="@layout/fragment_collection_photos">
+        <argument
+            android:name="collectionId"
+            app:argType="string"
+            android:defaultValue="@null"/>
+        <argument
+            android:name="collectionWallpaperUrl"
+            app:argType="string"
+            android:defaultValue="@null"/>
+        <action
+            android:id="@+id/action_collectionPhotosDest_to_bigPhotosDest"
+            app:destination="@id/bigPhotosDest"
+            app:enterAnim="@anim/appear_in"
+            app:exitAnim="@anim/fade_out"
+            app:popExitAnim="@anim/appear_out"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/bigPhotosDest"
+        android:name="com.aerial.wallpapers.ui.fragment.BigPhotosFragment"
+        android:label="Photo"
+        tools:layout="@layout/fragment_big_photos">
+        <argument
+            android:name="collectionId"
+            app:argType="string"
+            android:defaultValue="@null"/>
+        <argument
+            android:name="photoUrl"
+            app:argType="string"
+            android:defaultValue="@null"/>
+        <argument
+            android:name="photoPosition"
+            app:argType="integer"
+            android:defaultValue="@null"/>
+        <argument
+            android:name="totalCount"
+            app:argType="integer"
+            android:defaultValue="@null"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/photoOfTheDayDest"
+        android:name="com.aerial.wallpapers.ui.fragment.PhotoOfTheDayFragment"
+        android:label="Photo Of The Day"
+        tools:layout="@layout/fragment_photo_of_the_day"/>
+
+    <dialog
+        android:id="@+id/purchaseDest"
+        android:name="com.aerial.wallpapers.ui.fragment.PurchaseDialogFragment"
+        android:label="Purchase"
+        tools:layout="@layout/dialog_purchase"/>
+
+</navigation>

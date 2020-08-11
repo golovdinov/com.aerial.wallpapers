@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "423258925711",
+    "firebase_url": "https://com-aerial-wallpapers.firebaseio.com",
+    "project_id": "com-aerial-wallpapers",
+    "storage_bucket": "com-aerial-wallpapers.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:423258925711:android:b4bcf04bec34459ea29efa",
+        "android_client_info": {
+          "package_name": "com.aerial.wallpapers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "423258925711-hbpp55jnd56qr5qeiv2c5tegivf3li68.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnxD7rgM7k2U5S9yVuLiAiEt3NK9Sc0l8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "423258925711-hbpp55jnd56qr5qeiv2c5tegivf3li68.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

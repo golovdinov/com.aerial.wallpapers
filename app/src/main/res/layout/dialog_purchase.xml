@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="fragment"
+            type="com.aerial.wallpapers.ui.fragment.PurchaseDialogFragment" />
+        <variable
+            name="priceSingle"
+            type="String" />
+        <variable
+            name="priceSubscription"
+            type="String" />
+    </data>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal|bottom">
+
+        <LinearLayout
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dialog_purchase_offer_bg"
+            clipToOutline="@{true}"
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/paddingM">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/purchase_title_set_wallpaper"
+                    android:textColor="@color/textOnPrimary"
+                    android:padding="@dimen/paddingS"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/paddingS"
+                android:background="@drawable/dialog_purchase_offer_inner_bg"
+                android:layout_margin="3dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="@string/purchase_text_subscription"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/paddingS"
+                    android:layout_marginBottom="@dimen/paddingS">
+                    <ProgressBar
+                        android:visibility="@{priceSubscription == null ? View.VISIBLE : View.GONE}"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_centerInParent="true"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/textSizeL"
+                        android:layout_centerInParent="true"
+                        android:text="@{priceSubscription}"
+                        tools:text="299₽/мес"/>
+                </RelativeLayout>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/purchase_button_subscribe"
+                    android:onClick="@{() -> fragment.subscribe()}"/>
+
+                <Button
+                    style="@style/Widget.App.Button.Borderless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/purchase_button_cancel"
+                    android:onClick="@{() -> fragment.close()}"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

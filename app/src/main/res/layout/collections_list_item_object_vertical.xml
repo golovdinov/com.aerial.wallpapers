@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="collection"
+            type="com.aerial.wallpapers.entity.Collection" />
+        <variable
+            name="position"
+            type="Integer" />
+        <variable
+            name="presenter"
+            type="com.aerial.wallpapers.ui.fragment.CollectionItemPresenter" />
+        <variable
+            name="sharedElements"
+            type="kotlin.Pair&lt;View, String&gt;" />
+    </data>
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/paddingS"
+        android:paddingLeft="@dimen/paddingM"
+        android:paddingRight="@dimen/paddingM">
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer"
+            android:visibility="@{collection == null ? View.VISIBLE : View.GONE}"
+            tools:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/homeCollectionHeight">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <View
+                    android:id="@+id/ivFakeWallpaper"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/lightBackground"
+                    android:layout_alignParentTop="true"
+                    android:layout_above="@id/llFakeTexts"/>
+                <LinearLayout
+                    android:id="@+id/llFakeTexts"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/paddingM">
+                        <TextView
+                            android:id="@+id/tvFakeTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/textSizeXL"
+                            android:lines="1"
+                            android:ellipsize="end"/>
+                        <View
+                            android:layout_width="300dp"
+                            android:layout_height="0dp"
+                            android:layout_alignTop="@id/tvFakeTitle"
+                            android:layout_alignBottom="@id/tvFakeTitle"
+                            android:background="@color/lightBackground"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/paddingM">
+                        <TextView
+                            android:id="@+id/tvFakeSubtitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/textSizeM"
+                            android:lines="1"
+                            android:ellipsize="end"/>
+                        <View
+                            android:layout_width="200dp"
+                            android:layout_height="0dp"
+                            android:layout_alignTop="@id/tvFakeSubtitle"
+                            android:layout_alignBottom="@id/tvFakeSubtitle"
+                            android:background="@color/lightBackground"/>
+                    </RelativeLayout>
+                </LinearLayout>
+            </RelativeLayout>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <androidx.cardview.widget.CardView
+            android:visibility="@{collection == null ? View.GONE : View.VISIBLE}"
+            tools:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/homeCollectionHeight"
+            style="@style/Widget.App.CardView">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="@{() -> presenter.onCollectionClick(collection, position, sharedElements)}">
+                <ImageView
+                    android:id="@+id/ivWallpaper"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_above="@id/llTexts"
+                    tools:src="@drawable/pic2"
+                    imageUrl="@{collection.imageUrlSquare}"
+                    android:scaleType="centerCrop"
+                    android:transitionName="hero_image"/>
+                <LinearLayout
+                    android:id="@+id/llTexts"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/textSizeXL"
+                        android:layout_marginTop="@dimen/paddingM"
+                        android:layout_marginLeft="@dimen/paddingM"
+                        android:layout_marginRight="@dimen/paddingM"
+                        android:lines="1"
+                        android:ellipsize="end"
+                        android:text="@{collection.title}"
+                        tools:text="Collection Title"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/textSizeM"
+                        android:layout_marginLeft="@dimen/paddingM"
+                        android:layout_marginRight="@dimen/paddingM"
+                        android:layout_marginBottom="@dimen/paddingM"
+                        android:lines="1"
+                        android:text='@{collection.photosCount + " photos"}'
+                        tools:title="123 photos"
+                        android:textColor="@color/textSecondary"/>
+                </LinearLayout>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</layout>

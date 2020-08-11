@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="photoIsDownloading"
+            type="Boolean" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.App.AppBarLayout.Transparent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/app_bar_transparent_gradient_bg"/>
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:title="Photo 1/14"/>
+            </RelativeLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/paddingM">
+            <Button
+                android:id="@+id/btnDownload"
+                android:theme="@style/Widget.App.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_set_as_wallpaper"
+                android:visibility="@{photoIsDownloading ? View.INVISIBLE : View.VISIBLE}"/>
+            <ProgressBar
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:visibility="@{photoIsDownloading ? View.VISIBLE : View.INVISIBLE}"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>
